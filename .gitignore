@@ -1,0 +1,7 @@
+# Don't upload these!
+venv/
+__pycache__/
+*.pyc
+.env
+hackathon.db
+*.db
