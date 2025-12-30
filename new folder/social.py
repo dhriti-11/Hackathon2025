@@ -8,8 +8,8 @@ url = upload_image_to_cloud("waste.png")
 
 
 # remove comment only for testing purpose
-# a = analyze_image("url")
-# b = a['caption']
+a = analyze_image(url)
+b = a['caption']
 
 import requests
 
@@ -28,15 +28,16 @@ def get_post_status(post_id: str):
     "Content-Type": "application/json"
     }
     data = {
-    "post": "b",
+    "post": b,
     "platforms": get_supported_platforms(),
-    "mediaUrls": ["url"]
+    "mediaUrls": [url]
     }
 
     response = requests.post(url1, json=data, headers=headers)
     print(response.json())
 
-    return {"status": "posted"}
+    return {"status": "posted",
+            "credit": "awarded"}
 
 def get_supported_platforms():
-    return ["twitter", "facebook", "instagram", "linkedin", "youtube", "reddit"]
+    return ["instagram"]
